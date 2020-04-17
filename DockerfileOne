@@ -1,0 +1,9 @@
+FROM golang:1.14
+RUN go get github.com/revel/revel
+RUN go get github.com/revel/cmd/revel
+RUN mkdir -p /go/src/app
+ADD . /go/src/app
+RUN revel build app prod
+WORKDIR /go
+ENTRYPOINT prod/run.sh
+EXPOSE 9000

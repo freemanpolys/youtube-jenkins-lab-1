@@ -8,11 +8,8 @@ import (
 	"reflect"
 	"github.com/revel/revel"
 	controllers "github.com/revel/modules/static/app/controllers"
-	_ "github.com/revel/modules/testrunner/app"
-	controllers0 "github.com/revel/modules/testrunner/app/controllers"
 	_ "youtube-hello-world/app"
-	controllers1 "youtube-hello-world/app/controllers"
-	tests "youtube-hello-world/tests"
+	controllers0 "youtube-hello-world/app/controllers"
 	"github.com/revel/revel/testing"
 )
 
@@ -74,48 +71,7 @@ func Register() {
 			
 		})
 	
-	revel.RegisterController((*controllers0.TestRunner)(nil),
-		[]*revel.MethodType{
-			&revel.MethodType{
-				Name: "Index",
-				Args: []*revel.MethodArg{ 
-				},
-				RenderArgNames: map[int][]string{ 
-					76: []string{ 
-						"testSuites",
-					},
-				},
-			},
-			&revel.MethodType{
-				Name: "Suite",
-				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "suite", Type: reflect.TypeOf((*string)(nil)) },
-				},
-				RenderArgNames: map[int][]string{ 
-				},
-			},
-			&revel.MethodType{
-				Name: "Run",
-				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "suite", Type: reflect.TypeOf((*string)(nil)) },
-					&revel.MethodArg{Name: "test", Type: reflect.TypeOf((*string)(nil)) },
-				},
-				RenderArgNames: map[int][]string{ 
-					125: []string{ 
-					},
-				},
-			},
-			&revel.MethodType{
-				Name: "List",
-				Args: []*revel.MethodArg{ 
-				},
-				RenderArgNames: map[int][]string{ 
-				},
-			},
-			
-		})
-	
-	revel.RegisterController((*controllers1.App)(nil),
+	revel.RegisterController((*controllers0.App)(nil),
 		[]*revel.MethodType{
 			&revel.MethodType{
 				Name: "Index",
@@ -132,6 +88,5 @@ func Register() {
 	revel.DefaultValidationKeys = map[string]map[int]string{ 
 	}
 	testing.TestSuites = []interface{}{ 
-		(*tests.AppTest)(nil),
 	}
 }
