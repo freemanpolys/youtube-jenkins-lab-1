@@ -7,7 +7,7 @@ pipeline {
             steps {
                 sh 'go get github.com/revel/revel'
                 sh 'go get github.com/revel/cmd/revel'
-                sh 'revel package . prod'
+                sh 'revel package $PWD prod'
             }
             post {
                 always {
